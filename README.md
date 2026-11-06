@@ -21,6 +21,8 @@ Adds your [Hazelchat](https://hazelchat.co/?utm_source=contao&utm_medium=extensi
 - One root per language on the same domain: paste the code once. Roots without a code use it; a code saved in another root wins there. Each other domain uses its own code.
 - **Contao Cookiebar** (Oveleon): add a cookie of the type **Hazelchat** to a group of your banner. The chat then starts only after the visitor agrees there, with no script to paste.
 - **Wait for my cookie banner** (off), for any other banner, adds `data-require-consent="true"`: the chat starts only once your banner allows it. See [Cookie banners](https://hazelchat.co/integrations/contao/#consent).
+- In both cases only the chat waits: browsers still download `widget.js` from `app.hazelchat.co` straight away, so the visitor's IP address reaches Hazelchat before they agree. This is by design. If your site must prevent that too, use a consent tool that can block the script itself.
+- The script tag carries the id `hazelchat-contao`. When Hazelchat checks your website, it reads this id to record that the chat was installed with this bundle, and it counts the bundle's installations that way.
 - If the website root's Content-Security-Policy is on, the bundle allows `https://app.hazelchat.co` in `script-src`, `frame-src` and `connect-src`.
 - Nothing in the back end, no new tables (two fields on the website root), no requests from Contao to Hazelchat, no telemetry.
 
@@ -30,7 +32,7 @@ Empty the installation code and save, or remove the bundle in the Contao Manager
 
 ## Deutsch
 
-Hazelchat fügt Ihren KI-Chat-Agenten mit einem einzigen Installationscode in Ihre Contao-Website ein (Contao 5.3, 5.7 und 6.0). Installieren Sie das Bundle im Contao Manager (Suche: **Hazelchat**) oder mit `composer require hazelchat/contao-hazelchat`, öffnen Sie unter **Seitenstruktur** Ihren Startpunkt der Webseite und fügen Sie unter **Hazelchat > Installationscode** den Code aus Hazelchat ein. Bei mehreren Sprachen auf derselben Domain genügt ein Startpunkt. Mit der Contao Cookiebar fügen Sie Ihrem Banner ein Cookie vom Typ **Hazelchat** hinzu; der Chat startet dann erst nach der Zustimmung. Die Browser Ihrer Besucher laden den Chat von `app.hazelchat.co`; deren Fragen und Anfragedaten verarbeitet Hazelchat. Sie brauchen ein Hazelchat-Konto; der Free-Tarif gilt für eine Website und bleibt kostenlos.
+Hazelchat fügt Ihren KI-Chat-Agenten mit einem einzigen Installationscode in Ihre Contao-Website ein (Contao 5.3, 5.7 und 6.0). Installieren Sie das Bundle im Contao Manager (Suche: **Hazelchat**) oder mit `composer require hazelchat/contao-hazelchat`, öffnen Sie unter **Seitenstruktur** Ihren Startpunkt der Webseite und fügen Sie unter **Hazelchat > Installationscode** den Code aus Hazelchat ein. Bei mehreren Sprachen auf derselben Domain genügt ein Startpunkt. Mit der Contao Cookiebar fügen Sie Ihrem Banner ein Cookie vom Typ **Hazelchat** hinzu; der Chat startet dann erst nach der Zustimmung. Die Browser Ihrer Besucher laden den Chat von `app.hazelchat.co`; deren Fragen und Anfragedaten verarbeitet Hazelchat. Mit der Cookiebar und mit dem Schalter für andere Banner wartet nur der Chat: Der Browser lädt `widget.js` sofort, und die IP-Adresse des Besuchers erreicht Hazelchat schon vor der Einwilligung. Über die ID `hazelchat-contao` im Skript-Tag zählt Hazelchat die Installationen dieses Bundles. Sie brauchen ein Hazelchat-Konto; der Free-Tarif gilt für eine Website und bleibt kostenlos.
 
 ## Licence
 
